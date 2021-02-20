@@ -1,38 +1,164 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap');
+
+/*====== Variaveis ==========*/
+:root{
+  --box-shadow:  0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  --income-color: #2ecc71; 
+  --expense-color: #c0392b;
+  --border-color: rgb(222, 222, 222);
+  --border-color2:rgb(187, 187, 187);
+}
+/*====== Tipografia =========*/
+h1{
+  font-size: 2rem;
+}
+h2{
+  font-size: 1.5rem;
+}
+
+h4{
+  text-transform: uppercase;
+  font-size: 1.17rem;
+}
+
+.title{
+  padding-bottom: 10px;
+  margin-bottom: 14px;
+  border-bottom: 1px solid var(--border-color2);
+}
+
+.app{
+  padding-top: 40px;
+  max-width: 380px;
+  margin: auto;
+}
+
+.app__title{
+  font-size: 1.5rem;
   text-align: center;
+  margin-bottom: 30px;
+}
+/*======= HEADER =========*/
+.app__header{
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app__header .balance-container{
+  display: flex;
+  background: white;
+  padding: 20px;
+  box-shadow: var(--box-shadow);
+  margin-top: 18px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.app__header .balance-container>*{
+  width: 50%;
+  text-align: center;
+  position: relative;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.app__header .income p {
+  font-size: 1.25rem;
+  color:var(--income-color);
+}
+
+.app__header .expense p{
+  font-size: 1.25rem;
+  color: var(--expense-color);
+}
+.app__header .income::before{
+  content: "";
+  background: var(--border-color2);
+  width: 1px;
+  height: 100%;
+  position: absolute;
+  right: 0;
+}
+
+/*===== HISTORY ======*/
+.app__history{
+  margin-top: 30px;
+}
+
+.app__history .transactions {
+  list-style: none;
+}
+
+.app__history .transactions li{
+  position: relative;
+  border-radius: 2px;
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 10px;
+  background: white;
+  box-shadow: var(--box-shadow);
+}
+
+.app__history .transactions li .delete-btn{
+  transition: all 600ms;
+  font-weight: bold;
+  cursor: pointer;
+  opacity: 0;
+  display: none;
+  width: 8%;
+  top: 20%;
+  height:60%;
+  background: red;
+  color: white;
+  border: none;
+}
+
+.app__history .transactions li:hover .delete-btn{
+  opacity: 1;
+  position: absolute;
+  left:-30px;
+  display: block;
+}
+
+.app__history .transactions li+li{
+  margin-top: 8px;
+}
+
+.income-item{
+  border-right: 4px solid var(--income-color);
+}
+
+.expense-item{
+  border-right: 4px solid var(--expense-color);
+}
+
+/*========== App add new ================*/
+.app__add{
+  margin-top: 30px;
+}
+
+.app__add .form-group{
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  margin-bottom: 15px;
+}
+
+.app__add .form-group label{
+  margin-bottom: 7px;
+}
+
+.app__add input{
+  height: 40px;
+  border: 1px solid;
+  border-color: var(--border-color);
+  padding: 5px 10px;
+}
+
+.app__add input::placeholder{
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+}
+
+.app__add button{
+  width: 100%;
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  padding: 10px;
+  background-color: #9c88ff;
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  border: none;
 }
